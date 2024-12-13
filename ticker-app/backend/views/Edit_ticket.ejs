@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Ticket</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const successToast = document.getElementById("successToast");
+        const button = document.querySelector("button[type='submit']");
+
+        button.addEventListener("click", function () {
+          successToast.classList.remove("hidden");
+      //     returning to the top of the page
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    </script>
+  </head>
+
+  <body class="bg-slate-800 text-white">
+    <%- include("../components/navbar.ejs") %>
+    <!-- success toaster -->
+    <div class="absolute top-16 left-0 mt-4 ml-4 flex justify-center items-center text-center ring-2 ring-blue-400 px-4 py-2" id="successToast">
+      <div class="alert alert-success">
+        <div>
+          <span>Ticket updated successfully!</span>
+        </div>
+      </div>
+    </div>
+    <form
+      action="/edit/<%= ticket._id %>"
+      method="POST"
+      class=" flex w-1/2 flex-col space-y-5 my-8 p-6 ring-2 ring-blue-400 mx-auto"
+    >
+      <label for="title" class="font-bold tracking-wider">Title:</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        value="<%= ticket.title %>"
+        class="w-full font-bold text-lg text-black p-2 ring-1 ring-blue-400"
+        required
+      />
+      <label for="description" class="font-bold tracking-wider"
+        >Description:</label
+      >
+      <textarea
+        id="description"
+        name="description"
+        class="w-full font-bold text-lg text-black p-2 ring-1 ring-blue-400"
+        required
+      ></textarea>
+
+      <label for="category" class="font-bold tracking-wider">Category:</label>
+      <select
+        name="category"
+        id="category"
+        class="w-full font-bold text-lg text-black p-2 ring-1 ring-blue-400"
+      >
+        <option value="Bug">Bug</option>
+        <option value="Feature">Feature</option>
+        <option value="Enhancement">Enhancement</option>
+        <option value="Improvement">Improvement</option>
+        <option value="Question">Question</option>
+        <option value="Task">Task</option>
+        <option value="UI">UI</option>
+        <option value="HardWare">Hardware</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="priority" class="font-bold tracking-wider">Priority:</label>
+      <div class="flex gap-x-4">
+        <input type="radio" name="priority" value="1" checked /> High
+        <input type="radio" name="priority" value="2" /> Medium
+        <input type="radio" name="priority" value="3" /> Low
+      </div>
+
+      <label for="progress" class="font-bold tracking-wider">Progress:</label>
+      <div class="flex gap-x-4">
+        <input type="radio" name="progress" value="0" checked /> 0%
+        <input type="radio" name="progress" value="25" /> 25% to 50%
+        <input type="radio" name="progress" value="50" /> 50% to 75%
+        <input type="radio" name="progress" value="75" /> 75% to 100%
+      </div>
+
+      <label for="status" class="font-bold tracking-wider">Status:</label>
+      <select
+        name="status"
+        id="status"
+        class="w-full font-bold text-lg text-black p-2 ring-1 ring-blue-400"
+      >
+        <option value="Open">Open</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Closed">Closed</option>
+      </select>
+
+      <button
+        type="submit"
+        class="bg-blue-500 hover:ring-2 hover:ring-blue-400 hover:-skew-x-6 duration-300 hover:bg-blue-700 text-white font-bold py-2 px-4"
+      >
+        Add Ticket
+      </button>
+    </form>
+
+    <%- include("../components/footer.ejs") %>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </body>
+</html>

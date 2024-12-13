@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Notes App</title>
+      <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+      <!-- importing poppins font -->
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+      <!-- importing font awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      
+</head>
+
+<body class="bg-gray-100 h-screen py-4" style="font-family: 'Poppins', sans-serif;">
+      <div class="mb-4 w-1/6 flex py-3 ml-4 justify-center items-center text-center bg-blue-500 shadow-xl text-white">
+            <p class="font-bold">You have <%= notes.length %> <% if (notes.length === 1) { %>note<% } else { %>notes<% } %></p>
+      </div>
+      <div class="container mx-auto px-4 py-8">
+            <h1 class="text-3xl font-bold text-center text-gray-800 mb-8 border-b-2 border-red-400 pb-2 mx-96">Notes App
+            </h1>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  <% for (const note of notes) { %>
+                        <div
+                              class="bg-white rounded shadow p-4 hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                              <h2 class="text-lg font-bold mb-2">
+                                    <%= note.title %>
+                              </h2>
+                              <p class="text-gray-600">
+                                    <%= note.content %>
+                              </p>
+                              <form action="/delete/<%= note._id %>" method="POST" class="mt-4">
+                                    <button type="submit"
+                                          class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 float-right delete-button'"><i
+                                                class="fas fa-trash"></i></button>
+                              </form>
+                        </div>
+                        <% } %>
+
+                        <% if (notes.length === 0) { %>
+                              <div
+                                    class="bg-white rounded shadow p-4 hover:bg-gray-200 transition-all duration-200 ease-in-out">
+                                    <p class="text-gray-600">
+                                          You have no notes. Add one now!
+                                    </p>
+                              </div>
+                              <% } %>
+            </div>
+
+            <form action="/add" method="POST" class="mt-8">
+                  <div class="flex flex-col space-y-4">
+                        <input type="text" name="title" placeholder="Title" class="border rounded px-4 py-2">
+                        <textarea name="content" placeholder="Content" class="border rounded px-4 py-2 h-32"></textarea>
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add
+                              Note</button>
+                  </div>
+            </form>
+      </div>
+
+      <script>
+            // when the delete button is clicked, the note will be deleted
+            const deleteButtons = document.querySelectorAll('.delete-button');
+            deleteButtons.forEach(button => {
+                  button.addEventListener('click', async () => {
+                        const noteId = button.getAttribute('data-note-id');
+                        const response = await fetch(`/delete/${noteId}`, {
+                              method: 'POST',
+                        });
+                        const data = await response.json();
+                        if (data.success) {
+                              window.location.reload();
+                        }
+                  });
+            });
+      </script>
+</body>
+
+</html>

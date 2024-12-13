@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Tickets</title>
+    <!-- Importing Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Importing Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Importing Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="text-white bg-slate-800 h-screen">
+    <!-- Adding the Navigation Bar -->
+    <%- include("../components/navbar.ejs") %>
+
+    <div class="flex justify-center my-6 border-b-2 border-blue-400 pb-2 mx-96 items-center">
+      <h1 class="text-4xl">Your Tickets</h1>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mx-8">
+      <% if (tickets && tickets.length > 0) { %>
+        <% tickets.forEach(ticket => { %>
+          <div class="rounded-lg p-6 leading-loose ring-2 ring-sky-400">
+            <div class="flex justify-between items-center">
+              <h2 class="text-2xl font-bold"><%= ticket.title %></h2>
+              <i
+                class="fa fa-times cursor-pointer hover:text-red-600 hover:rotate-180 duration-300"
+                onclick="deleteTicket('<%= ticket._id %>'), setTimeout(() => window.location.reload(), 600)"
+                title="Delete Ticket"
+              ></i>
+            </div>
+
+            <hr class="border border-sky-400 skew-y-2 my-5 pt-2" />
+
+            <p><strong>Description:</strong> <%= ticket.description %></p>
+            <p><strong>Category:</strong> <%= ticket.category %></p>
+            <p><strong>Priority:</strong> <%= ticket.priority %></p>
+            <p><strong>Progress:</strong> <%= ticket.progress %>%</p>
+            <p><strong>Status:</strong> <%= ticket.status %></p>
+            
+            <div class="flex justify-between items-center">
+              <p><strong>Created At:</strong> <%= ticket.createdAt.toLocaleString("en-US", { timeZone: "UTC" }) %></p>
+              <button type="submit" onclick="location.href='/edit/<%= ticket._id %>'" class="bg-blue-500 hover:ring-2 hover:ring-blue-400 hover:-skew-x-6 duration-300 hover:bg-blue-700 text-white font-bold px-2 "><i class="fa fa-pencil" title="Edit Ticket"></i></button>
+            </div>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p class="text-center text-xl font-bold">No tickets found : )</p>
+      <% } %>
+    </div>
+
+    <%- include("../components/footer.ejs") %>
+
+    <script>
+      function deleteTicket(id) {
+        fetch(`/delete/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    </script>
+  </body>
+</html>

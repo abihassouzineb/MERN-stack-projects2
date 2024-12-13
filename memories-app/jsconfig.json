@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "target": "ES6"
+  },
+  "include": ["*.js", "backend/server.js", "frontend/src/**/*.{js,jsx,ts,tsx}"],
+}

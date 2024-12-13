@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Add Book</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+      <form action="/add-book" method="POST" class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+            <div class="mb-4">
+              <label for="title" class="block text-gray-700 font-bold">Title</label>
+              <input type="text" name="title" id="title" class="w-full border rounded-lg p-2">
+            </div>
+            <div class="mb-4">
+              <label for="authors" class="block text-gray-700 font-bold">Authors</label>
+              <input type="text" name="authors" id="authors" class="w-full border rounded-lg p-2">
+            </div>
+            <div class="mb-4">
+              <label for="description" class="block text-gray-700 font-bold">Description</label>
+              <textarea name="description" id="description" class="w-full border rounded-lg p-2"></textarea>
+            </div>
+            <div class="mb-4">
+              <label for="imageUrl" class="block text-gray-700 font-bold">Image URL</label>
+              <input type="text" name="imageUrl" id="imageUrl" class="w-full border rounded-lg p-2">
+            </div>
+            <div class="mb-4">
+              <label for="moreInfoUrl" class="block text-gray-700 font-bold">More Info URL</label>
+              <input type="text" name="moreInfoUrl" id="moreInfoUrl" class="w-full border rounded-lg p-2">
+            </div>
+            <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Add Book</button>
+          </form>
+          
+</body>
+</html>

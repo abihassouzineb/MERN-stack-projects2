@@ -1,0 +1,19 @@
+### Login and get tokens
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "name": "Kyle"
+}
+
+### Access protected route with access token
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTcyOTk2NDYyNCwiZXhwIjoxNzI5OTY0NjU0fQ.-UePZkMci-0n1--sCyQ0enTqZrjIvU7mHmnldv7qU3Y
+
+### Refresh access token
+POST http://localhost:3000/token
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTcyOTk2Mzg2OX0.R_FkwINCD4GW4bWcawQeBl82ItRLML6RdnyQHswa8EQ"
+}

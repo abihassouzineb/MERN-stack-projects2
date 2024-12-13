@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat App with Socket.io</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- importing tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <!-- importing Poppins font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body style="font-family: 'Poppins', sans-serif" class="bg-gray-100 h-screen flex flex-col items-center justify-center">
+  <div class="screen join-screen flex-col items-center justify-center ring ring-blue-500 ring-offset-2 ring-offset-blue-500 w-11/12 max-w-4xl p-4 rounded-lg hover:ring-offset-blue-600 hover:ring-blue-600 hover:shadow-2xl hover:shadow-blue-500 hover:-translate-y-2 transition ease-in out duration-300">
+    <h1 class="text-4xl font-bold mb-4 border-b-2 border-blue-500 pb-1 w-fit px-5 border-l-2 border-l-blue-500 rounded-bl-lg">Join Chat</h1>
+    <div class="form-group my-4 flex flex-row items-center space-x-4">
+      <label for="username" class="block text-lg text-gray-700 font-bold mb-3">Username:</label>
+      <input type="text" id="username" placeholder="Username" class="form-input mb-4 ring ring-blue-500 px-4 py-2 rounded-lg focus:ring focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-500 ring-offset-blue-500" />
+    </div>
+    <button id="join-btn" class="btn ring ring-blue-500 px-4 py-2 rounded-lg focus:ring focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-500 ring-offset-blue-500 font-bold">Join</button>
+  </div>
+
+  <div class="screen mt-24 chat-screen p-4 flex ring ring-blue-500 ring-offset-2 ring-offset-blue-500 rounded-lg hover:ring-offset-blue-600 hover:ring-blue-600 hover:shadow-2xl hover:shadow-blue-500 hover:-translate-y-2 transition ease-in out duration-300 flex-col w-11/12 max-w-4xl items-center justify-center">
+    <h1 class="text-4xl font-bold mb-4">Chat</h1>
+    <div id="messages" class="messages flex flex-col space-y-4"></div>
+    <div class="form-group flex flex-row items-center space-x-4">
+      <input type="text" id="message-input" placeholder="Message" class="form-input ring ring-blue-500 px-4 py-2 rounded-lg focus:ring focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-500" />
+      <button id="send-btn" class="btn ring ring-blue-500 px-4 py-2 rounded-lg focus:ring focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-500">Send</button>
+    </div>
+    <button id="leave-btn" class="btn ring ring-blue-500 px-4 py-2 rounded-lg focus:ring focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-500 mt-4 font-bold">Leave</button>
+  </div>
+</body>
+
+</html>
