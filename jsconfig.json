@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./"
+  },
+  "include": [
+    "backend/**/*",
+    "frontend/**/*",
+    "backend/src/index.ts",
+    "backend/src/models"
+  ]
+}
