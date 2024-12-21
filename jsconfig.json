@@ -3,9 +3,9 @@
     "baseUrl": "./"
   },
   "include": [
-    "backend/**/*",
+    "FinanceTrackerApp/backend/**/*",
     "frontend/**/*",
-    "backend/src/index.ts",
-    "backend/src/models"
+    "FinanceTrackerApp/backend/src/index.ts",
+    "FinanceTrackerApp/backend/src/models"
   ]
 }
