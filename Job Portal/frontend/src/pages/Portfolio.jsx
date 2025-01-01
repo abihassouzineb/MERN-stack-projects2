@@ -8,7 +8,7 @@ export default function Portfolio() {
   const AppliedJobs = JSON.parse(localStorage.getItem("appliedJobs")) || [];
 
   useEffect(() => {
-    user && console.log(user);
+    user && console.table(user);
   }, [user]);
 
   return (
