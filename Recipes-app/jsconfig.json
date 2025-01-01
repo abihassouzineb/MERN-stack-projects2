@@ -1,8 +1,9 @@
 {
       "compilerOptions": {
-            "baseUrl": "./",
+            "baseUrl": ".",
             "paths": {
-                  "@/*": ["backend/*", "frontend/*"]
+                  "@/*": ["./src/*"]
             }
-      }
+      },
+      "include": ["backend/**/*", "frontend/**/*"]
 }

@@ -1,0 +1,6 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./"
+    },
+    "include": ["frontend/*", "frontend/src/tsconfig.json"]
+}

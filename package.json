@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@chakra-ui/react": "^3.0.1",
+    "@clerk/clerk-react": "^5.21.0",
     "@google/generative-ai": "^0.21.0",
     "@sendgrid/mail": "^8.1.4",
     "axios": "^1.7.7",
@@ -20,7 +21,9 @@
     "multer": "^1.4.5-lts.1",
     "nightmare": "^3.0.2",
     "nodemon": "^3.1.7",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^6.27.0",
+    "redux": "^5.0.1",
     "request": "^2.88.2",
     "socket.io": "^4.8.1"
   },
