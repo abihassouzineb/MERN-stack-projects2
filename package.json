@@ -5,6 +5,7 @@
     "@google/generative-ai": "^0.21.0",
     "@mui/x-charts": "^7.24.1",
     "@sendgrid/mail": "^8.1.4",
+    "@tailwindcss/vite": "^4.0.3",
     "axios": "^1.7.7",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
@@ -28,7 +29,8 @@
     "react-router-dom": "^6.27.0",
     "redux": "^5.0.1",
     "request": "^2.88.2",
-    "socket.io": "^4.8.1"
+    "socket.io": "^4.8.1",
+    "styled-components": "^6.1.14"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
