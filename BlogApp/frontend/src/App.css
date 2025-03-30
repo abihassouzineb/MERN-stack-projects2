@@ -1,0 +1,30 @@
+/* poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* tailwindcss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+#home {
+  background: #c21500; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffc500,
+    #c21500
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffc500,
+    #c21500
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

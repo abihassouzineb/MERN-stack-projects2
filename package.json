@@ -24,6 +24,7 @@
     "method-override": "^3.0.0",
     "mongoose": "^8.7.3",
     "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
     "nightmare": "^3.0.2",
     "nodemon": "^3.1.7",
     "plotly.js": "^3.0.0",
@@ -33,6 +34,7 @@
     "redux": "^5.0.1",
     "request": "^2.88.2",
     "socket.io": "^4.8.1",
+    "sqlite": "^5.1.1",
     "styled-components": "^6.1.14"
   },
   "devDependencies": {

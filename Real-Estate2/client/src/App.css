@@ -1,0 +1,61 @@
+/* poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* tailwindcss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* From Uiverse.io by Mike11jr */
+.btn {
+  padding: 8px 20px;
+  background: none;
+  border: 2px solid #fff;
+  color: #131313;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  border-radius: 12px;
+  background-color: skyblue;
+  font-weight: bolder;
+  box-shadow: 0 2px 2px 2px #000;
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 120%;
+  background-color: #ff6700;
+  top: 50%;
+  transform: skewX(30deg) translate(-150%, -50%);
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  background-color: #4cc9f0;
+  color: #fff;
+  box-shadow: 0 2px 0 2px #0d3b66;
+}
+
+.btn:hover::before {
+  transform: skewX(30deg) translate(150%, -50%);
+  transition-delay: 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
